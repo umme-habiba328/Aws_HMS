@@ -20,9 +20,6 @@ hooks:
     - location: deploy_scripts/starting_server.sh
       timeout: 30
       runas: root
-    - location: deploy_scripts/db_hms.sh
-      timeout: 60
-      runas: root
 
   ApplicationStop:
     - location: deploy_scripts/stopping_server.sh
