@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE IF NOT EXIST `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
+INSERT INTO  `admin` (`id`, `username`, `password`, `updationDate`) VALUES
 (1, 'admin', 'Test@12345', '30-10-2022 11:42:05 AM');
 
 -- --------------------------------------------------------
@@ -48,7 +48,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
 -- Table structure for table `appointment`
 --
 
-CREATE TABLE `appointment` (
+CREATE TABLE IF NOT EXIST `appointment` (
   `id` int(11) NOT NULL,
   `doctorSpecialization` varchar(255) DEFAULT NULL,
   `doctorId` int(11) DEFAULT NULL,
@@ -75,7 +75,7 @@ INSERT INTO `appointment` (`id`, `doctorSpecialization`, `doctorId`, `userId`, `
 -- Table structure for table `doctors`
 --
 
-CREATE TABLE `doctors` (
+CREATE TABLE IF NOT EXIST `doctors` (
   `id` int(11) NOT NULL,
   `specilization` varchar(255) DEFAULT NULL,
   `doctorName` varchar(255) DEFAULT NULL,
@@ -102,7 +102,7 @@ INSERT INTO `doctors` (`id`, `specilization`, `doctorName`, `address`, `docFees`
 -- Table structure for table `doctorslog`
 --
 
-CREATE TABLE `doctorslog` (
+CREATE TABLE IF NOT EXIST `doctorslog` (
   `id` int(11) NOT NULL,
   `uid` int(11) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -131,7 +131,7 @@ INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logou
 -- Table structure for table `doctorspecilization`
 --
 
-CREATE TABLE `doctorspecilization` (
+CREATE TABLE IF NOT EXIST `doctorspecilization` (
   `id` int(11) NOT NULL,
   `specilization` varchar(255) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT current_timestamp()
@@ -164,7 +164,7 @@ INSERT INTO `doctorspecilization` (`id`, `specilization`, `creationDate`) VALUES
 -- Table structure for table `tblcontactus`
 --
 
-CREATE TABLE `tblcontactus` (
+CREATE TABLE IF NOT EXIST `tblcontactus` (
   `id` int(11) NOT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -189,7 +189,7 @@ INSERT INTO `tblcontactus` (`id`, `fullname`, `email`, `contactno`, `message`, `
 -- Table structure for table `tblmedicalhistory`
 --
 
-CREATE TABLE `tblmedicalhistory` (
+CREATE TABLE IF NOT EXIST `tblmedicalhistory` (
   `ID` int(10) NOT NULL,
   `PatientID` int(10) DEFAULT NULL,
   `BloodPressure` varchar(200) DEFAULT NULL,
@@ -212,7 +212,7 @@ INSERT INTO `tblmedicalhistory` (`ID`, `PatientID`, `BloodPressure`, `BloodSugar
 -- Table structure for table `tblpage`
 --
 
-CREATE TABLE `tblpage` (
+CREATE TABLE IF NOT EXIST `tblpage` (
   `ID` int(10) NOT NULL,
   `PageType` varchar(200) DEFAULT NULL,
   `PageTitle` varchar(200) DEFAULT NULL,
@@ -237,7 +237,7 @@ INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`
 -- Table structure for table `tblpatient`
 --
 
-CREATE TABLE `tblpatient` (
+CREATE TABLE IF NOT EXIST `tblpatient` (
   `ID` int(10) NOT NULL,
   `Docid` int(10) DEFAULT NULL,
   `PatientName` varchar(200) DEFAULT NULL,
@@ -263,7 +263,7 @@ INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `Patien
 -- Table structure for table `userlog`
 --
 
-CREATE TABLE `userlog` (
+CREATE TABLE IF NOT EXIST `userlog` (
   `id` int(11) NOT NULL,
   `uid` int(11) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -289,7 +289,7 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXIST `users` (
   `id` int(11) NOT NULL,
   `fullName` varchar(255) DEFAULT NULL,
   `address` longtext DEFAULT NULL,
@@ -316,141 +316,141 @@ INSERT INTO `users` (`id`, `fullName`, `address`, `city`, `gender`, `email`, `pa
 --
 -- Indexes for table `admin`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `admin`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD PRIMARY KEY (`id`);
+-- --
+-- -- Indexes for table `appointment`
+-- --
+-- ALTER TABLE `appointment`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `doctors`
---
-ALTER TABLE `doctors`
-  ADD PRIMARY KEY (`id`);
+-- --
+-- -- Indexes for table `doctors`
+-- --
+-- ALTER TABLE `doctors`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `doctorslog`
---
-ALTER TABLE `doctorslog`
-  ADD PRIMARY KEY (`id`);
+-- --
+-- -- Indexes for table `doctorslog`
+-- --
+-- ALTER TABLE `doctorslog`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `doctorspecilization`
---
-ALTER TABLE `doctorspecilization`
-  ADD PRIMARY KEY (`id`);
+-- --
+-- -- Indexes for table `doctorspecilization`
+-- --
+-- ALTER TABLE `doctorspecilization`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `tblcontactus`
---
-ALTER TABLE `tblcontactus`
-  ADD PRIMARY KEY (`id`);
+-- --
+-- -- Indexes for table `tblcontactus`
+-- --
+-- ALTER TABLE `tblcontactus`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `tblmedicalhistory`
---
-ALTER TABLE `tblmedicalhistory`
-  ADD PRIMARY KEY (`ID`);
+-- --
+-- -- Indexes for table `tblmedicalhistory`
+-- --
+-- ALTER TABLE `tblmedicalhistory`
+--   ADD PRIMARY KEY (`ID`);
 
---
--- Indexes for table `tblpage`
---
-ALTER TABLE `tblpage`
-  ADD PRIMARY KEY (`ID`);
+-- --
+-- -- Indexes for table `tblpage`
+-- --
+-- ALTER TABLE `tblpage`
+--   ADD PRIMARY KEY (`ID`);
 
---
--- Indexes for table `tblpatient`
---
-ALTER TABLE `tblpatient`
-  ADD PRIMARY KEY (`ID`);
+-- --
+-- -- Indexes for table `tblpatient`
+-- --
+-- ALTER TABLE `tblpatient`
+--   ADD PRIMARY KEY (`ID`);
 
---
--- Indexes for table `userlog`
---
-ALTER TABLE `userlog`
-  ADD PRIMARY KEY (`id`);
+-- --
+-- -- Indexes for table `userlog`
+-- --
+-- ALTER TABLE `userlog`
+--   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `email` (`email`);
+-- --
+-- -- Indexes for table `users`
+-- --
+-- ALTER TABLE `users`
+--   ADD PRIMARY KEY (`id`),
+--   ADD KEY `email` (`email`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+-- --
+-- -- AUTO_INCREMENT for dumped tables
+-- --
 
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+-- --
+-- -- AUTO_INCREMENT for table `admin`
+-- --
+-- ALTER TABLE `admin`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `appointment`
---
-ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+-- --
+-- -- AUTO_INCREMENT for table `appointment`
+-- --
+-- ALTER TABLE `appointment`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT for table `doctors`
---
-ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+-- --
+-- -- AUTO_INCREMENT for table `doctors`
+-- --
+-- ALTER TABLE `doctors`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `doctorslog`
---
-ALTER TABLE `doctorslog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+-- --
+-- -- AUTO_INCREMENT for table `doctorslog`
+-- --
+-- ALTER TABLE `doctorslog`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
---
--- AUTO_INCREMENT for table `doctorspecilization`
---
-ALTER TABLE `doctorspecilization`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+-- --
+-- -- AUTO_INCREMENT for table `doctorspecilization`
+-- --
+-- ALTER TABLE `doctorspecilization`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
---
--- AUTO_INCREMENT for table `tblcontactus`
---
-ALTER TABLE `tblcontactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+-- --
+-- -- AUTO_INCREMENT for table `tblcontactus`
+-- --
+-- ALTER TABLE `tblcontactus`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT for table `tblmedicalhistory`
---
-ALTER TABLE `tblmedicalhistory`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+-- --
+-- -- AUTO_INCREMENT for table `tblmedicalhistory`
+-- --
+-- ALTER TABLE `tblmedicalhistory`
+--   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `tblpage`
---
-ALTER TABLE `tblpage`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+-- --
+-- -- AUTO_INCREMENT for table `tblpage`
+-- --
+-- ALTER TABLE `tblpage`
+--   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT for table `tblpatient`
---
-ALTER TABLE `tblpatient`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+-- --
+-- -- AUTO_INCREMENT for table `tblpatient`
+-- --
+-- ALTER TABLE `tblpatient`
+--   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `userlog`
---
-ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+-- --
+-- -- AUTO_INCREMENT for table `userlog`
+-- --
+-- ALTER TABLE `userlog`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
+-- --
+-- -- AUTO_INCREMENT for table `users`
+-- --
+-- ALTER TABLE `users`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+-- COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+-- /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
