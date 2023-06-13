@@ -1,0 +1,29 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/html
+    overwrite: true
+  - source: /hms.sql
+    destination: /tmp/
+    overwrite: true
+
+hooks:
+  BeforeInstall:
+    - location: scripts/dependencies_installation.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: scripts/starting_server.sh
+      timeout: 30
+      runas: root
+    - location: scripts/db_hms.sh
+      timeout: 60
+      runas: root
+
+  ApplicationStop:
+    - location: scripts/stopping_server.sh
+      timeout: 30
+      runas: root
