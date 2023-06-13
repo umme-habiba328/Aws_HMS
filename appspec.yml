@@ -8,6 +8,7 @@ files:
   - source: /hms.sql
     destination: /tmp/
     overwrite: true
+file_exists_behavior: OVERWRITE
 
 hooks:
   BeforeInstall:
