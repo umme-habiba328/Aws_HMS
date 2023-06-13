@@ -12,19 +12,19 @@ file_exists_behavior: OVERWRITE
 
 hooks:
   BeforeInstall:
-    - location: scripts/dependencies_installation.sh
+    - location: deploy_scripts/dependencies_installation.sh
       timeout: 300
       runas: root
 
   AfterInstall:
-    - location: scripts/starting_server.sh
+    - location: deploy_scripts/starting_server.sh
       timeout: 30
       runas: root
-    - location: scripts/db_hms.sh
+    - location: deploy_scripts/db_hms.sh
       timeout: 60
       runas: root
 
   ApplicationStop:
-    - location: scripts/stopping_server.sh
+    - location: deploy_scripts/stopping_server.sh
       timeout: 30
       runas: root
